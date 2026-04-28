@@ -1,6 +1,7 @@
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -33,18 +34,21 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            TakeDamage(0.1f);
+            TakeDamage(1f);
         }
     }
 
     void TakeDamage(float dmg)
-    {
-        currentHP -= dmg;
-        Debug.Log("Player HP: " + currentHP);
-
-        if (currentHP <= 0)
+    {   
+        if (currentHP != 0)
         {
-            GameManager.Instance.GameOver();
+            currentHP -= dmg;
+            Debug.Log("Player HP: " + currentHP);
+        }
+        
+        else if (currentHP <= 0)
+        {
+            Debug.Log("Game Over");
         }
     }
 }
