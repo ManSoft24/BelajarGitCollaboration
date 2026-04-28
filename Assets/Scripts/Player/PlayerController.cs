@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
         else if (currentHP <= 0)
         {
             Debug.Log("Game Over");
+            GameManager.Instance.GameOver();
         }
     }
 }

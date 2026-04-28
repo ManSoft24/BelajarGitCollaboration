@@ -49,5 +49,8 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Game Over");
+        SceneManager.LoadScene("GameOver");
+        currentState = GameState.GameOver;
+        Time.timeScale = 1f;
     }
 }
