@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public float currentHP = 100;
-    public float speed = 5f;
+    private float currentHP ;
+    private float speed;
     public PlayerData playerData;
     private PlayerInput playerInput;
     private Vector2 moveInput;
