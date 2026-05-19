@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject panelPaused;
     public static GameManager Instance;
 
     public GameState currentState;
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        panelPaused.SetActive(false);
         Debug.Log("Resuming Game");
         Time.timeScale = 1f;
         currentState = GameState.Playing;
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
+        panelPaused.SetActive(true);
         Debug.Log("Pausing Game");
         Time.timeScale = 0f;
         currentState = GameState.Paused;
@@ -51,6 +54,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over");
         SceneManager.LoadScene("GameOver");
         currentState = GameState.GameOver;
-        Time.timeScale = 1f;
+        Time.timeScale = 1f;    
     }
 }
